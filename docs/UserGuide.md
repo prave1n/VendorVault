@@ -851,6 +851,9 @@ _Details coming soon ..._
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
+3. **App currently accepts certain invalid dates**: This is due to the automatic behavior of the `LocalDateTime` module, which adjusts certain invalid dates to the nearest valid date. We recommend checking the validity of dates manually before entering them. Improving these input checks to prevent invalid dates is a planned enhancement.
+    - For example, If an invalid day is entered for the month, such as `31-04-2023` (April has 30 days), it is automatically adjusted to `30-04-2023`. For non-leap years, dates like `29-02-2023` are adjusted to `28-02-2023`. No error message is displayed for these invalid dates.
+    - However, when entering any day greater than `31`, such as `33-05-2023`, an error message is displayed
 
 [[Back to Table of Contents]](#table-of-contents)
 
